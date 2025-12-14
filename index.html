@@ -1,215 +1,559 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <title>Cake - Nghệ thuật làm bánh</title>
-    <meta property="og:title" content="Cake - Nghệ thuật làm bánh" />
-    <meta name="description" content="Tiệm bánh Cake - Nghệ thuật tạo nên những chiếc bánh với tình yêu và sự sáng tạo" />
+    <title>Cake Bakery - Bánh ngon chất lượng</title>
+    <meta name="description" content="Thưởng thức tinh hoa ẩm thực với những chiếc bánh thơm ngon, hảo hạng">
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <meta property="og:title" content="Cake Bakery - Bánh ngon chất lượng" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="./style.css" />
-    <link href="./index.css" rel="stylesheet" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <style>
+      /* Hiệu ứng tùy chỉnh thêm */
+      .trangch-thq-card-elm1, .trangch-thq-card-elm2, .trangch-thq-card-elm3,
+      .trangch-thq-card-elm4, .trangch-thq-card-elm5 {
+        transition: all 0.3s ease;
+        transform: translateY(0);
+      }
+      
+      .trangch-thq-card-elm1:hover, .trangch-thq-card-elm2:hover, .trangch-thq-card-elm3:hover,
+      .trangch-thq-card-elm4:hover, .trangch-thq-card-elm5:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .trangch-thq-button-elm1, .trangch-thq-button-elm6,
+      .trangch-thq-button-elm2, .trangch-thq-button-elm3,
+      .trangch-thq-button-elm4, .trangch-thq-button-elm5 {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      
+      .trangch-thq-button-elm1:hover, .trangch-thq-button-elm6:hover {
+        transform: scale(1.05);
+        background-color: #ff5c5c !important;
+        color: white !important;
+      }
+      
+      .trangch-thq-button-elm2:hover, .trangch-thq-button-elm3:hover,
+      .trangch-thq-button-elm4:hover, .trangch-thq-button-elm5:hover {
+        background-color: #f0f0f0 !important;
+      }
+      
+      .trangch-thq-customer-quote-elm1, 
+      .trangch-thq-customer-quote-elm2,
+      .trangch-thq-customer-quote-elm3 {
+        transition: all 0.3s ease;
+      }
+      
+      .trangch-thq-customer-quote-elm1:hover, 
+      .trangch-thq-customer-quote-elm2:hover,
+      .trangch-thq-customer-quote-elm3:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      }
+      
+      .trangch-thq-image4-elm1, .trangch-thq-image4-elm2 {
+        transition: all 0.5s ease;
+      }
+      
+      .trangch-thq-image4-elm1:hover, .trangch-thq-image4-elm2:hover {
+        transform: scale(1.02);
+      }
+      
+      .trangch-thq-buttons-icon-elm1, .trangch-thq-buttons-icon-elm2,
+      .trangch-thq-buttons-icon-elm3, .trangch-thq-buttons-icon-elm4 {
+        transition: all 0.3s ease;
+      }
+      
+      .trangch-thq-buttons-icon-elm1:hover, .trangch-thq-buttons-icon-elm2:hover,
+      .trangch-thq-buttons-icon-elm3:hover, .trangch-thq-buttons-icon-elm4:hover {
+        transform: translateY(-5px);
+      }
+      
+      /* Animation cho các phần tử chính */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .trangch-thq-pagetitle-elm {
+        animation: fadeInUp 1s ease-out;
+      }
+      
+      .trangch-thq-frame1321317456-elm {
+        animation: fadeInUp 1s ease-out 0.3s both;
+      }
+      
+      .trangch-thq-text-elm47 {
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
+      
+      .trangch-thq-cards-elm2 {
+        animation: fadeInUp 1s ease-out 0.9s both;
+      }
+      
+      /* Hiệu ứng cho text khuyến mãi */
+      .trangch-thq-text-elm47 {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .trangch-thq-text-elm47::after {
+        content: "🔥";
+        position: absolute;
+        right: -35px;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: pulse 1.5s infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          transform: translateY(-50%) scale(1);
+        }
+        50% {
+          transform: translateY(-50%) scale(1.2);
+        }
+      }
+      
+      /* Hiệu ứng loading cho ảnh */
+      img {
+        opacity: 0;
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+      
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
   </head>
   <body>
-    <div class="cuchuyn-container1">
-      <!-- Header Navigation -->
-      <header class="cuchuyn-thq-navigation-elm">
-        <span class="cuchuyn-thq-text-elm34 Bodytext logo">Cake</span>
-        <nav class="cuchuyn-thq-items-elm1">
-          <button class="cuchuyn-thq-button-elm">
-            <span class="cuchuyn-thq-text-elm33 Smalltext">Trang chủ</span>
-          </button>
-          <span class="cuchuyn-thq-text-elm32 Bodytext">Các Loại Bánh</span>
-          <span class="cuchuyn-thq-text-elm31 Bodytext">Đặt bánh</span>
-          <span class="cuchuyn-thq-text-elm30 Bodytext">Đánh giá</span>
-        </nav>
-      </header>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
 
-      <!-- Main Content -->
-      <main>
-        <!-- Hero Section -->
-        <section class="cuchuyn-thq-articletitle-elm">
-          <h1 class="cuchuyn-thq-text-elm28 Title">
-            Nghệ thuật tạo nên những chiếc bánh
-          </h1>
-          <p class="cuchuyn-thq-text-elm29 Subheading">
-            Tại Cake, chúng tôi tin rằng làm bánh không đơn thuần là một nghề - đó là nghệ thuật của sự sáng tạo, sự kiên nhẫn và tình yêu thương.
-          </p>
-        </section>
-
-        <!-- Featured Images -->
-        <div class="cuchuyn-thq-images-elm">
-          <div class="cuchuyn-thq-image-elm1"></div>
-          <div class="cuchuyn-thq-image-elm2"></div>
-        </div>
-
-        <!-- Section 1: Image left, Text right -->
-        <div class="image-text-section">
-          <div class="image-container">
-            <img
-              alt="Quá trình làm bánh"
-              src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?q=80&w=992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="cuchuyn-thq-image8-elm content-image"
-            />
+      <div class="trangch-container1">
+        <div class="trangch-thq-trangch-elm">
+          <div class="trangch-thq-navigation-elm">
+            <span class="trangch-thq-text-elm39 Bodytext">Cake Delight</span>
+            <div class="trangch-thq-items-elm4">
+              <button class="trangch-thq-button-elm1">
+                <span class="trangch-thq-text-elm38 Smalltext">Trang chủ</span>
+              </button>
+              <span class="trangch-thq-text-elm35 Bodytext">Câu chuyện</span>
+              <span class="trangch-thq-text-elm36 Bodytext">Đặt bánh</span>
+              <span class="trangch-thq-text-elm37 Bodytext">Các loại bánh</span>
+            </div>
           </div>
-          <div class="text-container">
-            <span class="cuchuyn-thq-text-elm19 Bodytext">
-              <span><strong>Hành Trình Của Một Chiếc Bánh</strong></span>
-              <br />
-              <br />
-              <span>Bắt đầu từ những nguyên liệu thuần khiết nhất:</span>
-              <br />
-              <span>• Bột mì hữu cơ được chọn lọc kỹ lưỡng</span>
-              <br />
-              <span>• Trứng gà ta tươi mới mỗi ngày</span>
-              <br />
-              <span>• Bơ Pháp nguyên chất với hương vị beo béo đặc trưng</span>
-              <br />
-              <span>• Trái cây theo mùa, tươi ngon nhất</span>
-              <br />
-              <br />
-              <span><strong>Quá trình nhào nặn yêu thương:</strong> Mỗi công đoạn đều được thực hiện thủ công với sự tỉ mỉ đến từng milimet. Từ việc nhào bột, nướng bánh, đến trang trí - tất cả đều cần sự kiên nhẫn và đôi bàn tay khéo léo của người thợ.</span>
-              <br />
-              <br />
-              <span><strong>Sáng tạo không ngừng:</strong> Chúng tôi không ngừng tìm tòi, sáng tạo những hương vị mới, kết hợp giữa truyền thống và hiện đại. Mỗi chiếc bánh ra đời đều mang một câu chuyện riêng, một cảm xúc riêng.</span>
+          
+          <div class="trangch-thq-copy-elm6">
+            <div class="trangch-thq-pagetitle-elm">
+              <span class="trangch-thq-text-elm74">Cake Delight</span>
+              <span class="trangch-thq-text-elm75 Subheading">
+                <span>
+                  Thưởng thức tinh hoa ẩm thực với những chiếc bánh và tận hưởng hương
+                </span>
+                <br />
+                <span>vị tuyệt vời của nó</span>
+              </span>
+              <button class="trangch-thq-button-elm6">
+                <span class="trangch-thq-text-elm78">Đặt hàng ngay</span>
+              </button>
+            </div>
+          </div>
+          
+          <img
+            src="public/image41724-2uko-900h.png"
+            alt="image41724"
+            class="trangch-thq-image4-elm2"
+          />
+          
+          <img
+            src="public/image41784-rasa-800h.png"
+            alt="image41784"
+            class="trangch-thq-image4-elm1"
+          />
+          
+          <span class="trangch-thq-text-elm40">Cake nổi bật</span>
+          <div class="trangch-thq-frame1321317456-elm">
+            <div class="trangch-thq-card-elm1">
+              <img
+                src="public/image51772-toi-500h.png"
+                alt="Tiramisu bánh Ý"
+                class="trangch-thq-image5-elm"
+              />
+              <div class="trangch-thq-copy-elm1">
+                <span class="trangch-thq-text-elm41">Tiramisu</span>
+                <span class="trangch-thq-text-elm42">
+                  Bánh Ý truyền thống - lớp bánh ladyfinger thấm cà phê, kem
+                  mascarpone béo ngậy, phủ cacao.
+                </span>
+              </div>
+            </div>
+            <div class="trangch-thq-card-elm2">
+              <img
+                src="public/image61775-or8g-500w.png"
+                alt="Mousse dâu tươi"
+                class="trangch-thq-image6-elm"
+              />
+              <div class="trangch-thq-copy-elm2">
+                <span class="trangch-thq-text-elm43">Mousse dâu</span>
+                <span class="trangch-thq-text-elm44">
+                  Mousse dâu tây tươi xốp nhẹ, nhân dâu nguyên miếng. Vị chua
+                  ngọt thanh mát, perfect cho ngày hè.
+                </span>
+              </div>
+            </div>
+            <div class="trangch-thq-card-elm3">
+              <img
+                src="public/image71778-620c-500h.png"
+                alt="Macaron Pháp"
+                class="trangch-thq-image7-elm"
+              />
+              <div class="trangch-thq-copy-elm3">
+                <span class="trangch-thq-text-elm45">Macaron</span>
+                <span class="trangch-thq-text-elm46">
+                  Bánh Pháp với vỏ giòn tan, nhân ganache đa dạng. Màu sắc tự
+                  nhiên, hương vị tinh tế.
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <span class="trangch-thq-text-elm47">Khuyến mãi!</span>
+          <div class="trangch-thq-cards-elm2">
+            <div class="trangch-thq-card-elm4">
+              <div class="trangch-thq-image-elm1"></div>
+              <div class="trangch-thq-copy-elm4">
+                <span class="trangch-thq-text-elm48">Combo Gia đình</span>
+                <span class="trangch-thq-text-elm49">
+                  Giảm 15% khi mua từ 3 bánh trở lên và giảm 20% cho các cặp đôi
+                  sắp lập gia đình
+                </span>
+              </div>
+            </div>
+            <div class="trangch-thq-card-elm5">
+              <div class="trangch-thq-image-elm2"></div>
+              <div class="trangch-thq-copy-elm5">
+                <span class="trangch-thq-text-elm50">Sinh nhật</span>
+                <span class="trangch-thq-text-elm51">
+                  Tặng kèm nến và thiệp chúc mừng và giảm giá theo ngày + tháng
+                  sinh của bạn tối đa 40%
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <span class="trangch-thq-text-elm52">Các cake khác</span>
+          <div class="trangch-thq-text-elm53">
+            <div class="trangch-thq-text-elm54">
+              <span class="trangch-thq-text-elm55">Chocolate</span>
+              <span class="trangch-thq-text-elm56">
+                <span>Mô tả: Bánh kem mềm mịn với lớp chocolate đắng nhẹ.</span>
+                <br />
+                <span>Giá: 250.000đ</span>
+              </span>
+            </div>
+            <div class="trangch-thq-text-elm59">
+              <span class="trangch-thq-text-elm60">Tiramisu</span>
+              <span class="trangch-thq-text-elm61">
+                <span>Mô tả: Hương vị Ý cổ điển với cà phê và mascarpone.</span>
+                <br />
+                <span>Giá: 180.000đ</span>
+              </span>
+            </div>
+            <div class="trangch-thq-text-elm64">
+              <span class="trangch-thq-text-elm65">Croissant</span>
+              <span class="trangch-thq-text-elm66">
+                <span>Mô tả: Bánh 81 lớp bột giòn rụm, bơ thơm ngậy.</span>
+                <br />
+                <span>Giá: 200.000đ</span>
+              </span>
+            </div>
+          </div>
+          
+          <div class="trangch-thq-section-elm">
+            <span class="trangch-thq-text-elm73">
+              Những nội dung tiếp theo!
             </span>
+            <button class="trangch-thq-button-elm5">
+              <span class="trangch-thq-text-elm72">Back</span>
+            </button>
+            <button class="trangch-thq-button-elm4">
+              <span class="trangch-thq-text-elm71">Next</span>
+            </button>
           </div>
-        </div>
-
-        <!-- Section 2: Text left, Image right -->
-        <div class="image-text-section reverse">
-          <div class="text-container">
-            <span class="cuchuyn-thq-text-elm11 Bodytext">
-              <span><strong>Kết Nối Cảm Xúc</strong></span>
-              <br />
-              <span>Chiếc bánh không chỉ để thưởng thức, mà còn để:</span>
-              <br />
-              <span>• <strong>Kết nối</strong> mọi người trong những dịp sum vầy</span>
-              <br />
-              <span>• <strong>Lưu giữ</strong> những khoảnh khắc đáng nhớ</span>
-              <br />
-              <span>• <strong>Trao gửi</strong> yêu thương qua từng miếng bánh ngọt</span>
-              <br />
-              <br />
-              <span>"Từ lò nướng đến trái tim - mỗi chiếc bánh đều mang theo một phần tâm hồn của người làm ra nó."</span>
-              <br />
-              <br />
-              <span>Đó là lý do vì sao chúng tôi gọi mình là những nghệ nhân - những người thổi hồn vào từng chiếc bánh, biến chúng thành những tác phẩm nghệ thuật có thể... ăn được!</span>
-            </span>
-          </div>
-          <div class="image-container">
-            <img
-              alt="Kết nối cảm xúc qua những chiếc bánh"
-              src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?q=80&w=992&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="cuchuyn-thq-image8-elm content-image"
-            />
-          </div>
-        </div>
-
-        <!-- Cake Suggestions -->
-        <section class="cuchuyn-thq-cuchuyn-elm">
-          <span class="cuchuyn-thq-text-elm10 Heading">Gợi ý của Cake</span>
-        </section>
-
-        <!-- Product Cards -->
-        <div class="cuchuyn-thq-cards-elm">
-          <div class="cuchuyn-thq-card-elm1">
-            <div class="cuchuyn-thq-image-elm3"></div>
-            <div class="cuchuyn-thq-copy-elm1">
-              <span class="cuchuyn-thq-text-elm48 Bodytext">Bánh Sinh Nhật</span>
-              <span class="cuchuyn-thq-text-elm49 Bodytext">Custom theo yêu cầu</span>
+          
+          <span class="trangch-thq-text-elm10">Đánh giá khách hàng</span>
+          <div class="trangch-thq-cards-elm1">
+            <div class="trangch-thq-customer-quote-elm1">
+              <span class="trangch-thq-text-elm11">
+                Bình luận nhiều lượt thích
+              </span>
+              <div class="trangch-thq-avatar-elm1">
+                <img
+                  src="public/avatar1911-wfgs-200h.png"
+                  alt="Avatar Anh Ninh"
+                  class="trangch-thq-avatar-elm2"
+                />
+                <div class="trangch-thq-frame2610301-elm1">
+                  <span class="trangch-thq-text-elm12 Smalltext">Anh Ninh</span>
+                  <span class="trangch-thq-text-elm13 Smalltext">
+                    Dịch vụ chuyên nghiệp, bánh đẹp
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="trangch-thq-customer-quote-elm2">
+              <span class="trangch-thq-text-elm14">Đánh giá uy tín</span>
+              <div class="trangch-thq-avatar-elm3">
+                <img
+                  src="public/avatar1918-zu97-200h.png"
+                  alt="Avatar Minh36"
+                  class="trangch-thq-avatar-elm4"
+                />
+                <div class="trangch-thq-frame2610301-elm2">
+                  <span class="trangch-thq-text-elm15 Smalltext">Minh36</span>
+                  <span class="trangch-thq-text-elm16 Smalltext">
+                    Bánh ở đây rất ngon
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="trangch-thq-customer-quote-elm3">
+              <span class="trangch-thq-text-elm17">Bình luận sôi nổi</span>
+              <div class="trangch-thq-avatar-elm5">
+                <img
+                  src="public/avatar1925-ahrw-200h.png"
+                  alt="Avatar GUGUGAGA"
+                  class="trangch-thq-avatar-elm6"
+                />
+                <div class="trangch-thq-frame2610301-elm3">
+                  <span class="trangch-thq-text-elm18 Smalltext">GUGUGAGA</span>
+                  <span class="trangch-thq-text-elm19 Smalltext">
+                    <span>Đa dạng phong phú các loại bánh</span>
+                    <br />
+                    <span>10 điểm không có nhưng.</span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="cuchuyn-thq-card-elm2">
-            <div class="cuchuyn-thq-image-elm4"></div>
-            <div class="cuchuyn-thq-copy-elm2">
-              <span class="cuchuyn-thq-text-elm50 Bodytext">Bánh Cupcake</span>
-              <span class="cuchuyn-thq-text-elm51 Bodytext">Nhiều hương vị</span>
+          
+          <div class="trangch-thq-navigation-footer-elm">
+            <div class="trangch-thq-items-elm1">
+              <span class="trangch-thq-text-elm22 Smalltext">Sản phẩm</span>
+              <span class="trangch-thq-text-elm23 Smalltext">Bánh ngọt</span>
+              <span class="trangch-thq-text-elm24 Smalltext">Bánh mặn</span>
+              <span class="trangch-thq-text-elm25 Smalltext">Bánh kem</span>
             </div>
-          </div>
-          <div class="cuchuyn-thq-card-elm3">
-            <div class="cuchuyn-thq-image-elm5"></div>
-            <div class="cuchuyn-thq-copy-elm3">
-              <span class="cuchuyn-thq-text-elm52 Bodytext">Bánh Mì</span>
-              <span class="cuchuyn-thq-text-elm53 Bodytext">Tươi mỗi ngày</span>
+            <div class="trangch-thq-items-elm2">
+              <span class="trangch-thq-text-elm26 Smalltext">Dịch vụ</span>
+              <span class="trangch-thq-text-elm27 Smalltext">Đặt bánh online</span>
+              <span class="trangch-thq-text-elm28 Smalltext">Giao hàng</span>
+              <span class="trangch-thq-text-elm29 Smalltext">Tư vấn</span>
             </div>
-          </div>
-        </div>
-      </main>
-
-      <!-- Footer -->
-      <footer class="cuchuyn-thq-navigation-footer-elm">
-        <div class="footer-content">
-          <div class="footer-section">
-            <span class="cuchuyn-thq-text-elm47 Subheading site-name">Cake Bakery</span>
-            <div class="cuchuyn-thq-social-icons-elm">
-              <button class="cuchuyn-thq-buttons-icon-elm1" aria-label="Facebook">
-                <div class="cuchuyn-thq-icon-elm1">
+            <div class="trangch-thq-items-elm3">
+              <span class="trangch-thq-text-elm30 Smalltext">Về chúng tôi</span>
+              <span class="trangch-thq-text-elm31 Smalltext">Câu chuyện</span>
+              <span class="trangch-thq-text-elm32 Smalltext">Đội ngũ</span>
+              <span class="trangch-thq-text-elm33 Smalltext">Tuyển dụng</span>
+            </div>
+            <span class="trangch-thq-text-elm34 Subheading">Liên hệ</span>
+            <div class="trangch-thq-social-icons-elm">
+              <button class="trangch-thq-buttons-icon-elm1">
+                <div class="trangch-thq-icon-elm1">
                   <img
+                    src="public/icon1957-34ath.svg"
                     alt="Facebook"
-                    src="public/icon1742-56ib.svg"
-                    class="cuchuyn-thq-icon-elm2"
+                    class="trangch-thq-icon-elm2"
                   />
                 </div>
               </button>
-              <button class="cuchuyn-thq-buttons-icon-elm2" aria-label="Instagram">
-                <div class="cuchuyn-thq-icon-elm3">
+              <button class="trangch-thq-buttons-icon-elm2">
+                <div class="trangch-thq-icon-elm3">
                   <img
+                    src="public/icon1962-cbm5.svg"
                     alt="Instagram"
-                    src="public/icon1747-v9t8.svg"
-                    class="cuchuyn-thq-icon-elm4"
+                    class="trangch-thq-icon-elm4"
                   />
                 </div>
               </button>
-              <button class="cuchuyn-thq-buttons-icon-elm3" aria-label="Twitter">
-                <div class="cuchuyn-thq-icon-elm5">
+              <button class="trangch-thq-buttons-icon-elm3">
+                <div class="trangch-thq-icon-elm5">
                   <img
+                    src="public/icon1967-nhzi.svg"
                     alt="Twitter"
-                    src="public/icon1752-8j2w.svg"
-                    class="cuchuyn-thq-icon-elm6"
+                    class="trangch-thq-icon-elm6"
                   />
                 </div>
               </button>
-              <button class="cuchuyn-thq-buttons-icon-elm4" aria-label="YouTube">
-                <div class="cuchuyn-thq-icon-elm7">
+              <button class="trangch-thq-buttons-icon-elm4">
+                <div class="trangch-thq-icon-elm7">
                   <img
+                    src="public/icon1972-ia8j.svg"
                     alt="YouTube"
-                    src="public/icon1757-hvmj.svg"
-                    class="cuchuyn-thq-icon-elm8"
+                    class="trangch-thq-icon-elm8"
                   />
                 </div>
               </button>
             </div>
-          </div>
-
-          <div class="footer-links">
-            <div class="cuchuyn-thq-items-elm2">
-              <span class="cuchuyn-thq-text-elm35 Smalltext">Sản Phẩm</span>
-              <a href="#" class="cuchuyn-thq-text-elm36 Smalltext">Bánh Ngọt</a>
-              <a href="#" class="cuchuyn-thq-text-elm37 Smalltext">Bánh Mặn</a>
-              <a href="#" class="cuchuyn-thq-text-elm38 Smalltext">Bánh Theo Mùa</a>
-            </div>
-            <div class="cuchuyn-thq-items-elm3">
-              <span class="cuchuyn-thq-text-elm39 Smalltext">Dịch Vụ</span>
-              <a href="#" class="cuchuyn-thq-text-elm40 Smalltext">Đặt Bánh Online</a>
-              <a href="#" class="cuchuyn-thq-text-elm41 Smalltext">Giao Hàng</a>
-              <a href="#" class="cuchuyn-thq-text-elm42 Smalltext">Tư Vấn</a>
-            </div>
-            <div class="cuchuyn-thq-items-elm4">
-              <span class="cuchuyn-thq-text-elm43 Smalltext">Về Chúng Tôi</span>
-              <a href="#" class="cuchuyn-thq-text-elm44 Smalltext">Câu Chuyện</a>
-              <a href="#" class="cuchuyn-thq-text-elm45 Smalltext">Đội Ngũ</a>
-              <a href="#" class="cuchuyn-thq-text-elm46 Smalltext">Liên Hệ</a>
-            </div>
+            <img
+              src="public/divider1975-nqym.svg"
+              alt="Divider"
+              class="trangch-thq-divider-elm"
+            />
           </div>
         </div>
-
-        <img
-          alt="Divider"
-          src="public/divider1760-smm.svg"
-          class="cuchuyn-thq-divider-elm"
-        />
-      </footer>
+        <a href="https://play.teleporthq.io/signup" class="trangch-link">
+          <div aria-label="Sign up to TeleportHQ" class="trangch-container2">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 19 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="trangch-icon1"
+            >
+              <path
+                d="M9.1017 4.64355H2.17867C0.711684 4.64355 -0.477539 5.79975 -0.477539 7.22599V13.9567C-0.477539 15.3829 0.711684 16.5391 2.17867 16.5391H9.1017C10.5687 16.5391 11.7579 15.3829 11.7579 13.9567V7.22599C11.7579 5.79975 10.5687 4.64355 9.1017 4.64355Z"
+                fill="#B23ADE"
+              ></path>
+              <path
+                d="M10.9733 12.7878C14.4208 12.7878 17.2156 10.0706 17.2156 6.71886C17.2156 3.3671 14.4208 0.649963 10.9733 0.649963C7.52573 0.649963 4.73096 3.3671 4.73096 6.71886C4.73096 10.0706 7.52573 12.7878 10.9733 12.7878Z"
+                fill="#FF5C5C"
+              ></path>
+              <path
+                d="M17.7373 13.3654C19.1497 14.1588 19.1497 15.4634 17.7373 16.2493L10.0865 20.5387C8.67402 21.332 7.51855 20.6836 7.51855 19.0968V10.5141C7.51855 8.92916 8.67402 8.2807 10.0865 9.07221L17.7373 13.3654Z"
+                fill="#2874DE"
+              ></path>
+            </svg>
+            <span class="trangch-text6">Built in TeleportHQ</span>
+          </div>
+        </a>
+      </div>
+      <link rel="canonical" href="https://untitled-mf776y.teleporthq.app/" />
     </div>
+    
+    <script>
+      // Thêm hiệu ứng khi cuộn trang
+      document.addEventListener('DOMContentLoaded', function() {
+        // Thêm hiệu ứng cho các nút
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+          button.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+          });
+          
+          button.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+          });
+        });
+        
+        // Thêm hiệu ứng cho các thẻ đánh giá khách hàng
+        const customerQuotes = document.querySelectorAll('.trangch-thq-customer-quote-elm1, .trangch-thq-customer-quote-elm2, .trangch-thq-customer-quote-elm3');
+        customerQuotes.forEach(quote => {
+          quote.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+          });
+          
+          quote.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
+          });
+        });
+        
+        // Hiệu ứng cho nút "Đặt hàng ngay"
+        const orderButton = document.querySelector('.trangch-thq-button-elm6');
+        if (orderButton) {
+          orderButton.addEventListener('click', function() {
+            this.innerHTML = '<span class="trangch-thq-text-elm78">Đang xử lý...</span>';
+            setTimeout(() => {
+              this.innerHTML = '<span class="trangch-thq-text-elm78">Đặt hàng thành công!</span>';
+              this.style.backgroundColor = '#4CAF50';
+            }, 1000);
+          });
+        }
+        
+        // Animation khi cuộn trang
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, observerOptions);
+        
+        // Quan sát các phần tử để thêm hiệu ứng
+        const elementsToAnimate = document.querySelectorAll('.trangch-thq-card-elm1, .trangch-thq-card-elm2, .trangch-thq-card-elm3, .trangch-thq-card-elm4, .trangch-thq-card-elm5');
+        elementsToAnimate.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+          el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          observer.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>
