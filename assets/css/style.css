@@ -1,5 +1,5 @@
 :root {
-  --dl-layout-size-large: 144px;
+  --dl-layout-size-large: 144px;  
   --dl-layout-size-small: 48px;
   --dl-layout-space-unit: 16px;
   --dl-layout-size-medium: 96px;
@@ -564,12 +564,30 @@
   font-stretch: normal;
   letter-spacing: 0em;
 }
+
+.Title {
+  font-size: 64px;
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 700px;
+  font-stretch: normal;
+  letter-spacing: -0.02em;
+}
  
 .Subheading {
   font-size: 24px;
   font-style: normal;
   font-family: Inter;
   font-weight: 400px;
+  font-stretch: normal;
+  letter-spacing: 0em;
+}
+
+.Smalltext {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 500px;
   font-stretch: normal;
   letter-spacing: 0em;
 }
@@ -619,6 +637,43 @@
   }
 }
  
+@media(max-width: 479px) {
+  .thq-section-padding {
+    padding: var(--dl-layout-space-oneandhalfunits);
+  }
+  .thq-flex-column {
+    gap: var(--dl-layout-space-unit);
+  }
+  .thq-flex-row {
+    gap: var(--dl-layout-space-unit);
+  }
+  .thq-grid-6 {
+    grid-gap: var(--dl-layout-space-unit);
+    grid-template-columns: 1fr 1fr;
+  }
+  .thq-grid-5 {
+    grid-gap: var(--dl-layout-space-unit);
+    grid-template-columns: 1fr 1fr;
+  }
+  .thq-grid-3 {
+    grid-gap: var(--dl-layout-space-unit);
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+  .thq-grid-4 {
+    grid-gap: var(--dl-layout-space-unit);
+    align-items: center;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+  .thq-grid-2 {
+    grid-gap: var(--dl-layout-space-unit);
+  }
+  .thq-grid-auto-300 {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media(max-width: 479px) {
   .thq-section-padding {
     padding: var(--dl-layout-space-oneandhalfunits);
