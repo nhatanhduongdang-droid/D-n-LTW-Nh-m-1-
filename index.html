@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
+    
+    <a href="cau-chuyen.html">Xem câu chuyện</a>
+    <a href="dat-banh.html">Đặt bánh ngay</a>
 
     <style data-tag="reset-style-sheet">
       html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
@@ -30,6 +33,17 @@
         color: var(--dl-color-theme-neutral-dark);
         background: var(--dl-color-theme-neutral-light);
         fill: var(--dl-color-theme-neutral-dark);
+      }
+      
+      /* Thêm style cho các link trong navbar */
+      .nav-link {
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-link:hover {
+        color: #ff5c5c;
+        transform: translateY(-2px);
       }
     </style>
     <style>
@@ -190,9 +204,9 @@
               <button class="trangch-thq-button-elm1">
                 <span class="trangch-thq-text-elm38 Smalltext">Trang chủ</span>
               </button>
-              <span class="trangch-thq-text-elm35 Bodytext">Câu chuyện</span>
-              <span class="trangch-thq-text-elm36 Bodytext">Đặt bánh</span>
-              <span class="trangch-thq-text-elm37 Bodytext">Các loại bánh</span>
+              <span class="trangch-thq-text-elm35 Bodytext nav-link" onclick="chuyenTrang('cau-chuyen.html')">Câu chuyện</span>
+              <span class="trangch-thq-text-elm36 Bodytext nav-link" onclick="chuyenTrang('dat-banh.html')">Đặt bánh</span>
+              <span class="trangch-thq-text-elm37 Bodytext nav-link" onclick="chuyenTrang('cac-loai-banh.html')">Các loại bánh</span>
             </div>
           </div>
           
@@ -206,7 +220,7 @@
                 <br />
                 <span>vị tuyệt vời của nó</span>
               </span>
-              <button class="trangch-thq-button-elm6">
+              <button class="trangch-thq-button-elm6" onclick="chuyenTrang('dat-banh.html')">
                 <span class="trangch-thq-text-elm78">Đặt hàng ngay</span>
               </button>
             </div>
@@ -470,6 +484,64 @@
       </div>
       
     <script>
+      // Hàm chuyển trang chính
+      function chuyenTrang(page) {
+        // Lưu trạng thái hiện tại để có thể quay lại
+        sessionStorage.setItem('previousPage', window.location.href);
+        
+        // Thêm hiệu ứng loading
+        document.body.style.opacity = '0.7';
+        document.body.style.transition = 'opacity 0.3s ease';
+        
+        // Chuyển trang sau 0.3s để hiệu ứng mượt mà
+        setTimeout(() => {
+          window.location.href = page;
+        }, 300);
+      }
+      
+      // Hàm quay lại trang trước
+      function quayLai() {
+        const previousPage = sessionStorage.getItem('previousPage');
+        if (previousPage) {
+          window.location.href = previousPage;
+        } else {
+          window.history.back();
+        }
+      }
+      
+      // Thêm sự kiện cho nút Trang chủ
+      document.querySelector('.trangch-thq-button-elm1').addEventListener('click', function() {
+        chuyenTrang('index.html');
+      });
+      
+      // Thêm sự kiện cho các button trong phần "Các cake khác" để chuyển đến trang đặt bánh
+      document.querySelectorAll('.trangch-thq-text-elm54, .trangch-thq-text-elm59, .trangch-thq-text-elm64').forEach(item => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', function() {
+          chuyenTrang('dat-banh.html');
+        });
+        
+        item.addEventListener('mouseenter', function() {
+          this.style.color = '#ff5c5c';
+          this.style.transform = 'translateY(-2px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          this.style.color = '';
+          this.style.transform = '';
+        });
+      });
+      
+      // Thêm sự kiện cho nút Back và Next (nếu cần)
+      document.querySelector('.trangch-thq-button-elm5').addEventListener('click', function() {
+        quayLai();
+      });
+      
+      document.querySelector('.trangch-thq-button-elm4').addEventListener('click', function() {
+        // Có thể thêm chức năng cho nút Next ở đây
+        alert('Tính năng đang được phát triển!');
+      });
+
       // Thêm hiệu ứng khi cuộn trang
       document.addEventListener('DOMContentLoaded', function() {
         // Thêm hiệu ứng cho các nút
@@ -500,10 +572,9 @@
         const orderButton = document.querySelector('.trangch-thq-button-elm6');
         if (orderButton) {
           orderButton.addEventListener('click', function() {
-            this.innerHTML = '<span class="trangch-thq-text-elm78">Đang xử lý...</span>';
+            this.innerHTML = '<span class="trangch-thq-text-elm78">Đang chuyển trang...</span>';
             setTimeout(() => {
-              this.innerHTML = '<span class="trangch-thq-text-elm78">Đặt hàng thành công!</span>';
-              this.style.backgroundColor = '#4CAF50';
+              this.innerHTML = '<span class="trangch-thq-text-elm78">Đặt hàng ngay</span>';
             }, 1000);
           });
         }
@@ -531,6 +602,26 @@
           el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
           observer.observe(el);
         });
+        
+        // Thêm hiệu ứng hover cho các link navbar
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+          link.addEventListener('mouseenter', function() {
+            this.style.color = '#ff5c5c';
+            this.style.transform = 'translateY(-2px)';
+          });
+          
+          link.addEventListener('mouseleave', function() {
+            this.style.color = '';
+            this.style.transform = '';
+          });
+        });
+      });
+      
+      // Lưu trạng thái khi tải trang
+      window.addEventListener('load', function() {
+        document.body.style.opacity = '1';
+        document.body.style.transition = 'opacity 0.5s ease';
       });
     </script>
   </body>

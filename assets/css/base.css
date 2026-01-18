@@ -1167,19 +1167,20 @@
  
 .trangch-thq-section-elm {
   top: 4311px;
+  gap: 20px;
   left: -0.000018912327504949644px;
-  width: 1440px;
+  width: 1395px;
   height: 236px;
   display: flex;
   overflow: hidden;
   position: absolute;
-  align-items: flex-start;
+  align-items: center;
   flex-shrink: 0;
   background-color: rgba(247, 247, 247, 1);
 }
  
 .trangch-thq-buttons-elm2 {
-  gap: 24px;
+  gap: 20px;
   top: 80px;
   left: 1097px;
   width: 263px;
@@ -1220,6 +1221,7 @@
   align-items: center;
   border-radius: 8px;
   background-color: rgba(230, 230, 230, 1);
+  margin-left: auto;
 }
  
 .trangch-thq-text-elm72 {
@@ -1227,7 +1229,7 @@
   height: auto;
   font-size: 24px;
   font-style: Medium;
-  text-align: left;
+  margin-left: auto;
   font-family: Inter;
   font-weight: 500;
   line-height: 150%;
